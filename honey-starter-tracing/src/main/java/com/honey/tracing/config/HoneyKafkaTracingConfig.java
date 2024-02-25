@@ -9,12 +9,15 @@ import com.honey.tracing.kafka.producer.interceptor.HoneyKafkaProducerIntercepto
 import com.honey.tracing.kafka.producer.interceptor.HoneyKafkaProducerTracingInterceptor;
 import io.opentracing.Tracer;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.core.KafkaTemplate;
 
 import java.util.List;
 
 @Configuration
+@ConditionalOnBean(KafkaTemplate.class)
 @AutoConfigureAfter(HoneyTracingConfig.class)
 public class HoneyKafkaTracingConfig {
 
