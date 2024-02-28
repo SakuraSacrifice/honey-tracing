@@ -3,4 +3,5 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
  com.honey.tracing.config.HoneyTracingFilterConfig,\
  com.honey.tracing.config.HoneyRestTemplateTracingConfig,\
  com.honey.tracing.config.HoneyKafkaTemplateConfig,\
- com.honey.tracing.config.HoneyKafkaTracingConfig
+ com.honey.tracing.config.HoneyKafkaTracingConfig,\
+ com.honey.tracing.config.HoneyDbTracingConfig

@@ -28,6 +28,7 @@ public class HoneySpanReportEntity {
     private String httpCode;
     private String host;
     private List<HoneyRequestStack> requestStacks = new ArrayList<>();
+    private List<HoneyDbStack> dbStacks = new ArrayList<>();
 
     private HoneySpanReportEntity() {
 
@@ -44,6 +45,10 @@ public class HoneySpanReportEntity {
 
     public void addRequestStack(HoneyRequestStack honeyRequestStack) {
         requestStacks.add(honeyRequestStack);
+    }
+
+    public void addDbStack(HoneyDbStack honeyDbStack) {
+        dbStacks.add(honeyDbStack);
     }
 
     public String getTraceId() {
@@ -110,6 +115,14 @@ public class HoneySpanReportEntity {
         this.requestStacks = requestStacks;
     }
 
+    public List<HoneyDbStack> getDbStacks() {
+        return dbStacks;
+    }
+
+    public void setDbStacks(List<HoneyDbStack> dbStacks) {
+        this.dbStacks = dbStacks;
+    }
+
     public static class HoneySpanReportEntityBuilder {
         private JaegerSpan span;
 
@@ -163,6 +176,12 @@ public class HoneySpanReportEntity {
                                 .withLogData(logData)
                                 .build();
                         honeySpanReportEntity.addRequestStack(honeyRequestStack);
+                    } else if (LOG_EVENT_KIND_DB_STACK.equals(logData.getFields().get(LOG_EVENT_KIND))) {
+                        HoneyDbStack honeyDbStack = HoneyDbStack.HoneyDbStackBuilder
+                                .builder()
+                                .withLogData(logData)
+                                .build();
+                        honeySpanReportEntity.addDbStack(honeyDbStack);
                     }
                 }
             };
