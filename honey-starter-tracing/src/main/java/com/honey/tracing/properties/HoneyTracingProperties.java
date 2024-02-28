@@ -12,6 +12,8 @@ public class HoneyTracingProperties {
 
     private HttpUrlProperties httpUrl = new HttpUrlProperties();
 
+    private AsyncProperties async = new AsyncProperties();
+
     public boolean isEnabled() {
         return enabled;
     }
@@ -26,6 +28,14 @@ public class HoneyTracingProperties {
 
     public void setHttpUrl(HttpUrlProperties httpUrl) {
         this.httpUrl = httpUrl;
+    }
+
+    public AsyncProperties getAsync() {
+        return async;
+    }
+
+    public void setAsync(AsyncProperties async) {
+        this.async = async;
     }
 
     public static class HttpUrlProperties {
@@ -52,6 +62,18 @@ public class HoneyTracingProperties {
 
         public void setSkipPattern(String skipPattern) {
             this.skipPattern = skipPattern;
+        }
+    }
+
+    public static class AsyncProperties {
+        private boolean enabled;
+
+        public boolean isEnabled() {
+            return enabled;
+        }
+
+        public void setEnabled(boolean enabled) {
+            this.enabled = enabled;
         }
     }
 
