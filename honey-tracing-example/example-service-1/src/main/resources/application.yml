@@ -7,6 +7,12 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.101.8:3306/test
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 honey:
   tracing:
