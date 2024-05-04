@@ -8,6 +8,7 @@ public class CommonConstants {
     public static final String HONEY_REST_TEMPLATE_NAME = "HoneyRestTemplate";
     public static final String HONEY_KAFKA_NAME = "HoneyKafka";
     public static final String HONEY_DB_NAME = "HoneyDb";
+    public static final String HONEY_FEIGN_NAME = "HoneyFeign";
 
     public static final String FIELD_HOST = "host";
     public static final String FIELD_API = "api";
